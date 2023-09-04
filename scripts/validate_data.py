@@ -26,8 +26,8 @@ def file_hash(filename):
     # Open the file, read contents as bytes.
     # Calculate, return SHA1 has on the bytes from the file.
     # This is a placeholder, replace it to write your solution.
-    raise NotImplementedError(
-        'This is just a template -- you are expected to code this.')
+    contents = Path(filename).read_bytes()
+    return hashlib.sha1(contents).hexdigest()
 
 
 def validate_data(data_directory):
@@ -54,7 +54,17 @@ def validate_data(data_directory):
     # If hash for filename is not the same as the one in the file, raise
     # ValueError
     # This is a placeholder, replace it to write your solution.
-    raise NotImplementedError('This is just a template -- you are expected to code this.')
+    data_path = Path(data_directory)
+    contents = (data_path / 'group-01/hash_list.txt').read_text()
+    for line in contents.splitlines():
+        # Split into SHA1 hash and filename
+        hash, filename = line.strip().split()
+        # Calculate actual hash for given filename.
+        actual_hash = file_hash(data_path / filename)
+        # If hash for filename is not the same as the one in the file, raise
+        # ValueError
+        if hash != actual_hash:
+            raise ValueError("Hash for {} does not match".format(filename))
 
 
 def main():
