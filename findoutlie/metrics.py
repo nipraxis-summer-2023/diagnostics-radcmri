@@ -30,7 +30,7 @@ def dvars(img):
     # This is a placeholder, replace it to write your solution.
     data = img.get_fdata()
     prev_vol = data[..., 1:]
-    this_vol = data[..., 0:-1]
+    this_vol = data[..., :-1]
     vol_diff = this_vol - prev_vol
     dvals = np.sqrt(np.mean(vol_diff ** 2, axis=(0, 1, 2)))
     return dvals
