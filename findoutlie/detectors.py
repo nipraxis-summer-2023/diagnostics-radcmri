@@ -58,7 +58,7 @@ def iqr_detector(measures, iqr_proportion=1.5):
     upper_boundary = Q3 + IQR * iqr_proportion
     lower_boundary = Q1 - IQR * iqr_proportion
 
-    outliers = (measures < lower_boundary | (measures > upper_boundary)
+    outliers = (measures < lower_boundary ) | (measures > upper_boundary)
 
 
     return outliers
