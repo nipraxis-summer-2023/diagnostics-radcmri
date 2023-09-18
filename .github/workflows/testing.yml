@@ -18,6 +18,7 @@ jobs:
         run: |
           pip install -r test_requirements.txt
           pip install pytest-cov
+          pip install scikit-image
       - name: Install package
         run: |
           pip install flit
