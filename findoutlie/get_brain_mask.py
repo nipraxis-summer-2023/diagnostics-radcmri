@@ -5,10 +5,12 @@ from scipy import ndimage as ndi
 import os
 
 """
-    Usage: mask = get_img_mask(image_filename_with_full_path)
+    Usage: mask = get_img_mask(fname)
+    Example: mask = get_img_mask('{absolute_path}/data/group-01/sub-01/func/sub-01_task-taskzero_run-01_bold.nii.gz')
     ----------
     fname : filename of 4D skull image
     mask  : 3D image matrix of the brain mask
+    (For verification, the resulting brain mask is saved in the same directory with the file name "_mask.nii.gz".)
 """
 
 def get_vol_mask(vol):
@@ -52,7 +54,5 @@ def get_img_mask(fname):
     return mask_3D
 
 
-#Example:
-#get_img_mask('/Users/yingjun/Desktop/nipraxis/diagnostics-radcmri/data/group-01/sub-07/func/sub-07_task-taskzero_run-02_bold.nii.gz')
 
 
