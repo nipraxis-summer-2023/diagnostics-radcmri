@@ -51,7 +51,7 @@ def get_img_mask(fname):
     mask_nifti = nib.Nifti1Image(mask_3D, affine=img.affine)
     nib.save(mask_nifti, output_filename)
 
-    return mask_3D
+    return output_filename
 
 
 
